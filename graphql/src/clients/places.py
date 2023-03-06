@@ -1,10 +1,14 @@
+import logging.config
 from http.client import HTTPException
 from typing import Optional
-from urllib.parse import urlencode, urljoin
+from urllib.parse import urljoin
 
 from clients.base.base import BaseClient
 from models.places import PlaceModel
 from settings import settings
+
+logging.config.fileConfig("logging.conf")
+logger = logging.getLogger()
 
 
 class PlacesClient(BaseClient):
@@ -24,7 +28,7 @@ class PlacesClient(BaseClient):
         :return:
         """
 
-        endpoint = f"/api/v1/places/{place_id}"
+        endpoint = f"http://favorite-places-app:8000/api/v1/places/{place_id}"
         url = urljoin(self.base_url, endpoint)
 
         if response := self._request(self.GET, url):
@@ -40,13 +44,14 @@ class PlacesClient(BaseClient):
         :return:
         """
 
-        endpoint = "/api/v1/places"
+        endpoint = "http://favorite-places-app:8000/api/v1/places"
         query_params = {
             "limit": 20,
         }
-        url = urljoin(self.base_url, f"{endpoint}?{urlencode(query_params)}")
+        url = urljoin(self.base_url, f"{endpoint}?page=1&size=50")
         if response := self._request(self.GET, url):
-            return [self.__build_model(place) for place in response.get("data", [])]
+            logger.info(response)
+            return [self.__build_model(place) for place in response.get("items", [])]
 
         return None
 
@@ -58,7 +63,7 @@ class PlacesClient(BaseClient):
         :return:
         """
 
-        endpoint = "/api/v1/places"
+        endpoint = "http://favorite-places-app:8000/api/v1/places"
         url = urljoin(self.base_url, endpoint)
         if response := self._request(self.POST, url, body=place.dict()):
             if place_data := response.get("data"):
@@ -74,7 +79,7 @@ class PlacesClient(BaseClient):
         :return:
         """
 
-        endpoint = f"/api/v1/places/{place_id}"
+        endpoint = f"http://favorite-places-app:8000/api/v1/places/{place_id}"
         url = urljoin(self.base_url, endpoint)
         result = True
         try:

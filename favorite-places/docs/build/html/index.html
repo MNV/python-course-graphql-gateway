@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Любимые места &mdash; документация Favorite Places Service 0.1.0</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Favorite Places Service
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Любимые места</a></li>
+<li><a class="reference internal" href="#id2">Зависимости</a></li>
+<li><a class="reference internal" href="#id3">Установка</a></li>
+<li><a class="reference internal" href="#id4">Использование</a><ul>
+<li><a class="reference internal" href="#id5">Работа с базой данных</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">Автоматизация</a></li>
+<li><a class="reference internal" href="#id7">Документация</a></li>
+<li><a class="reference internal" href="#id8">Клиенты</a><ul>
+<li><a class="reference internal" href="#module-clients.base.base">Базовый</a><ul>
+<li><a class="reference internal" href="#clients.base.base.BaseClient"><code class="docutils literal notranslate"><span class="pre">BaseClient</span></code></a><ul>
+<li><a class="reference internal" href="#clients.base.base.BaseClient.base_url"><code class="docutils literal notranslate"><span class="pre">BaseClient.base_url</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">Интеграции</a><ul>
+<li><a class="reference internal" href="#module-integrations.db.session">БД</a><ul>
+<li><a class="reference internal" href="#integrations.db.session.get_session"><code class="docutils literal notranslate"><span class="pre">get_session()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-models.mixins">Модели</a><ul>
+<li><a class="reference internal" href="#models.mixins.TimeStampMixin"><code class="docutils literal notranslate"><span class="pre">TimeStampMixin</span></code></a></li>
+<li><a class="reference internal" href="#models.places.Place"><code class="docutils literal notranslate"><span class="pre">Place</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-repositories.base_repository">Репозитории</a><ul>
+<li><a class="reference internal" href="#repositories.base_repository.BaseRepository"><code class="docutils literal notranslate"><span class="pre">BaseRepository</span></code></a><ul>
+<li><a class="reference internal" href="#repositories.base_repository.BaseRepository.create_model"><code class="docutils literal notranslate"><span class="pre">BaseRepository.create_model()</span></code></a></li>
+<li><a class="reference internal" href="#repositories.base_repository.BaseRepository.delete_by"><code class="docutils literal notranslate"><span class="pre">BaseRepository.delete_by()</span></code></a></li>
+<li><a class="reference internal" href="#repositories.base_repository.BaseRepository.find"><code class="docutils literal notranslate"><span class="pre">BaseRepository.find()</span></code></a></li>
+<li><a class="reference internal" href="#repositories.base_repository.BaseRepository.find_all_by"><code class="docutils literal notranslate"><span class="pre">BaseRepository.find_all_by()</span></code></a></li>
+<li><a class="reference internal" href="#repositories.base_repository.BaseRepository.get_attr"><code class="docutils literal notranslate"><span class="pre">BaseRepository.get_attr()</span></code></a></li>
+<li><a class="reference internal" href="#repositories.base_repository.BaseRepository.model"><code class="docutils literal notranslate"><span class="pre">BaseRepository.model</span></code></a></li>
+<li><a class="reference internal" href="#repositories.base_repository.BaseRepository.update_model"><code class="docutils literal notranslate"><span class="pre">BaseRepository.update_model()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#repositories.places_repository.PlacesRepository"><code class="docutils literal notranslate"><span class="pre">PlacesRepository</span></code></a><ul>
+<li><a class="reference internal" href="#repositories.places_repository.PlacesRepository.model"><code class="docutils literal notranslate"><span class="pre">PlacesRepository.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-schemas.base">Схемы</a><ul>
+<li><a class="reference internal" href="#schemas.base.ListResponse"><code class="docutils literal notranslate"><span class="pre">ListResponse</span></code></a></li>
+<li><a class="reference internal" href="#schemas.places.PlaceAutoSummary"><code class="docutils literal notranslate"><span class="pre">PlaceAutoSummary</span></code></a></li>
+<li><a class="reference internal" href="#schemas.places.PlaceResponse"><code class="docutils literal notranslate"><span class="pre">PlaceResponse</span></code></a></li>
+<li><a class="reference internal" href="#schemas.places.PlaceSummary"><code class="docutils literal notranslate"><span class="pre">PlaceSummary</span></code></a></li>
+<li><a class="reference internal" href="#schemas.places.PlacesListResponse"><code class="docutils literal notranslate"><span class="pre">PlacesListResponse</span></code></a></li>
+<li><a class="reference internal" href="#schemas.routes.MetadataTag"><code class="docutils literal notranslate"><span class="pre">MetadataTag</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id15">Сервисы</a></li>
+<li><a class="reference internal" href="#id16">Транспорт</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Favorite Places Service</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Любимые места</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Любимые места<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p>Сервис для сохранения информации о любимых местах.</p>
+</section>
+<section id="id2">
+<h1>Зависимости<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h1>
+<p>Установите необходимое ПО:</p>
+<ol class="arabic simple">
+<li><p>[Docker Desktop](<a class="reference external" href="https://www.docker.com">https://www.docker.com</a>).</p></li>
+<li><p>[Git](<a class="reference external" href="https://github.com/git-guides/install-git">https://github.com/git-guides/install-git</a>).</p></li>
+<li><p>[PyCharm](<a class="reference external" href="https://www.jetbrains.com/ru-ru/pycharm/download">https://www.jetbrains.com/ru-ru/pycharm/download</a>) (опционально).</p></li>
+</ol>
+</section>
+<section id="id3">
+<h1>Установка<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h1>
+<p>Склонируйте репозиторий:
+.. code-block::console</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="https://github.com/mnv/python-course-favorite-places.git">https://github.com/mnv/python-course-favorite-places.git</a></p>
+</div></blockquote>
+<p>1. Для конфигурации приложения скопируйте содержимое <cite>.env.sample</cite> в <cite>.env</cite> файл:
+.. code-block::console</p>
+<blockquote>
+<div><blockquote>
+<div><p>cp .env.sample .env</p>
+</div></blockquote>
+<p>Этот файл содержит переменные окружения, значения которых будут общими для всего приложения.
+Файл-образец (<cite>.env.sample</cite>) содержит набор переменных со значениями по умолчанию,
+поэтому он может быть настроен в зависимости от окружения.</p>
+</div></blockquote>
+<p>2. Соберите контейнер с помощью Docker Compose:
+.. code-block::console</p>
+<blockquote>
+<div><blockquote>
+<div><p>docker compose build</p>
+</div></blockquote>
+<p>Эта команда должна быть запущена из корневого каталога, в котором находится <cite>Dockerfile</cite>.
+Вам также необходимо собрать контейнер docker заново в случае, если вы обновили <cite>requirements.txt</cite>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Для корректной работы приложения настройте базу данных.
+Примените миграции для создания таблиц в базе данных:</p></li>
+</ol>
+<p>4. Теперь можно запустить проект внутри контейнера Docker:
+.. code-block::console</p>
+<blockquote>
+<div><blockquote>
+<div><p>docker compose up</p>
+</div></blockquote>
+<p>Когда контейнеры подняты, сервер запускается по адресу [<a class="reference external" href="http://0.0.0.0:8010/docs](http://0.0.0.0:8010/docs">http://0.0.0.0:8010/docs](http://0.0.0.0:8010/docs</a>).
+Вы можете открыть его в браузере.</p>
+</div></blockquote>
+</section>
+<section id="id4">
+<h1>Использование<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h1>
+<section id="id5">
+<h2>Работа с базой данных<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<p>Чтобы инициализировать функциональность миграции, выполните первый запуск:
+.. code-block::console</p>
+<blockquote>
+<div><p>docker compose exec favorite-places-app alembic init -t async migrations</p>
+</div></blockquote>
+<p>Эта команда создаст каталог с конфигурационными файлами для настройки функциональности асинхронных миграций.</p>
+<p>Для создания новых миграций, которые будут обновлять таблицы базы данных в соответствии с обновленными моделями,
+выполните эту команду:
+.. code-block::console</p>
+<blockquote>
+<div><p>docker compose run favorite-places-app alembic revision –autogenerate  -m «your description»</p>
+</div></blockquote>
+<p>Чтобы применить созданные миграции, выполните следующие действия:
+.. code-block::console</p>
+<blockquote>
+<div><p>docker compose run favorite-places-app alembic upgrade head</p>
+</div></blockquote>
+</section>
+</section>
+<section id="id6">
+<h1>Автоматизация<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h1>
+<p>Проект содержит специальный <cite>Makefile</cite>, который предоставляет ярлыки для набора команд:
+1. Build the Docker container:
+.. code-block::console</p>
+<blockquote>
+<div><p>make build</p>
+</div></blockquote>
+<p>2. Создание документации Sphinx:
+.. code-block::console</p>
+<blockquote>
+<div><p>make docs-html</p>
+</div></blockquote>
+<p>3. Автоформатирование исходного кода:
+.. code-block::console</p>
+<blockquote>
+<div><p>make format</p>
+</div></blockquote>
+<p>4. Статический анализ (линтеры):
+.. code-block::console</p>
+<blockquote>
+<div><p>make lint</p>
+</div></blockquote>
+<p>5. Автотесты:
+.. code-block::console</p>
+<blockquote>
+<div><p>make test</p>
+<p>Отчет о покрытии тестами будет расположен по адресу <cite>src/htmlcov/index.html</cite>.
+Таким образом, вы можете оценить качество покрытия автоматизированных тестов.</p>
+</div></blockquote>
+<p>6. Запуск автоформата, линтеров и тестов одной командой:
+.. code-block::console</p>
+<blockquote>
+<div><p>make all</p>
+</div></blockquote>
+<p>Выполните эти команды из исходного каталога, в котором находится <cite>Makefile</cite>.</p>
+</section>
+<section id="id7">
+<h1>Документация<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h1>
+</section>
+<section id="id8">
+<h1>Клиенты<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h1>
+<section id="module-clients.base.base">
+<span id="id9"></span><h2>Базовый<a class="headerlink" href="#module-clients.base.base" title="Permalink to this heading"></a></h2>
+<p>Базовые функции для клиентов внешних сервисов.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="clients.base.base.BaseClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clients.base.base.</span></span><span class="sig-name descname"><span class="pre">BaseClient</span></span><a class="headerlink" href="#clients.base.base.BaseClient" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовый класс, реализующий интерфейс для клиентов.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="clients.base.base.BaseClient.base_url">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#clients.base.base.BaseClient.base_url" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение базового URL для запросов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<p>Гео-клиент
+—
+.. automodule:: clients.geo</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">members<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</div></blockquote>
+</section>
+</section>
+<section id="id10">
+<h1>Интеграции<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h1>
+<section id="module-integrations.db.session">
+<span id="id11"></span><h2>БД<a class="headerlink" href="#module-integrations.db.session" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="integrations.db.session.get_session">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">integrations.db.session.</span></span><span class="sig-name descname"><span class="pre">get_session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncGenerator</span></span></span><a class="headerlink" href="#integrations.db.session.get_session" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение объекта сессии для асинхронного подключения к БД.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="module-models.mixins">
+<span id="id12"></span><h1>Модели<a class="headerlink" href="#module-models.mixins" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="models.mixins.TimeStampMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.mixins.</span></span><span class="sig-name descname"><span class="pre">TimeStampMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created_at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updated_at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.mixins.TimeStampMixin" title="Ссылка на это определение"></a></dt>
+<dd><p>Миксин для добавления атрибутов с датой и временем создания и обновления записи.</p>
+</dd></dl>
+
+<span class="target" id="module-models.places"></span><dl class="py class">
+<dt class="sig sig-object py" id="models.places.Place">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.places.</span></span><span class="sig-name descname"><span class="pre">Place</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created_at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updated_at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConstrainedStrValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ConstrainedStrValue</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ConstrainedStrValue</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locality</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ConstrainedStrValue</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.places.Place" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель для описания места.</p>
+</dd></dl>
+
+</section>
+<section id="module-repositories.base_repository">
+<span id="id13"></span><h1>Репозитории<a class="headerlink" href="#module-repositories.base_repository" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="repositories.base_repository.BaseRepository">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">repositories.base_repository.</span></span><span class="sig-name descname"><span class="pre">BaseRepository</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AsyncSession</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#repositories.base_repository.BaseRepository" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовый абстрактный класс репозитория.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="repositories.base_repository.BaseRepository.create_model">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">BaseModel</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#repositories.base_repository.BaseRepository.create_model" title="Ссылка на это определение"></a></dt>
+<dd><p>Создание записи.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model</strong> – Данные модели для создания.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="repositories.base_repository.BaseRepository.delete_by">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#repositories.base_repository.BaseRepository.delete_by" title="Ссылка на это определение"></a></dt>
+<dd><p>Удаление записи по переданному условию.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Значения атрибутов</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="repositories.base_repository.BaseRepository.find">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primary_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Row</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#repositories.base_repository.BaseRepository.find" title="Ссылка на это определение"></a></dt>
+<dd><p>Поиск объекта по его идентификатору.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>primary_key</strong> – Идентификатор объекта</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="repositories.base_repository.BaseRepository.find_all_by">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_all_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_by</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#repositories.base_repository.BaseRepository.find_all_by" title="Ссылка на это определение"></a></dt>
+<dd><p>Поиск объектов по заданным параметрам.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>offset</strong> – Смещение элементов</p></li>
+<li><p><strong>order_by</strong> – Сортировка (по умолчанию - ID)</p></li>
+<li><p><strong>limit</strong> – Лимит на количество элементов в выборке</p></li>
+<li><p><strong>kwargs</strong> – Условия для выборки</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="repositories.base_repository.BaseRepository.get_attr">
+<span class="sig-name descname"><span class="pre">get_attr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Column</span></span></span><a class="headerlink" href="#repositories.base_repository.BaseRepository.get_attr" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение атрибута модели по наименованию.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>attr</strong> – </p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="repositories.base_repository.BaseRepository.model">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">SQLModel</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#repositories.base_repository.BaseRepository.model" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель таблицы.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="repositories.base_repository.BaseRepository.update_model">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primary_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#repositories.base_repository.BaseRepository.update_model" title="Ссылка на это определение"></a></dt>
+<dd><p>Обновление записи.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>primary_key</strong> – Первичный ключ</p></li>
+<li><p><strong>kwargs</strong> – Атрибуты и их значения</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-repositories.places_repository"></span><dl class="py class">
+<dt class="sig sig-object py" id="repositories.places_repository.PlacesRepository">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">repositories.places_repository.</span></span><span class="sig-name descname"><span class="pre">PlacesRepository</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AsyncSession</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#repositories.places_repository.PlacesRepository" title="Ссылка на это определение"></a></dt>
+<dd><p>Репозиторий для списка любимых мест.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="repositories.places_repository.PlacesRepository.model">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#models.places.Place" title="models.places.Place"><span class="pre">Place</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#repositories.places_repository.PlacesRepository.model" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель таблицы.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-schemas.base">
+<span id="id14"></span><h1>Схемы<a class="headerlink" href="#module-schemas.base" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="schemas.base.ListResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">schemas.base.</span></span><span class="sig-name descname"><span class="pre">ListResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schemas.base.ListResponse" title="Ссылка на это определение"></a></dt>
+<dd><p>Схема для представления данных в виде списка.</p>
+</dd></dl>
+
+<span class="target" id="module-schemas.places"></span><dl class="py class">
+<dt class="sig sig-object py" id="schemas.places.PlaceAutoSummary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">schemas.places.</span></span><span class="sig-name descname"><span class="pre">PlaceAutoSummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ConstrainedStrValue</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schemas.places.PlaceAutoSummary" title="Ссылка на это определение"></a></dt>
+<dd><p>Схема данных для обновления любимого места.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="schemas.places.PlaceResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">schemas.places.</span></span><span class="sig-name descname"><span class="pre">PlaceResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#models.places.Place" title="models.places.Place"><span class="pre">Place</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schemas.places.PlaceResponse" title="Ссылка на это определение"></a></dt>
+<dd><p>Схема для представления данных о списке любимых мест.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="schemas.places.PlaceSummary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">schemas.places.</span></span><span class="sig-name descname"><span class="pre">PlaceSummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ConstrainedStrValue</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schemas.places.PlaceSummary" title="Ссылка на это определение"></a></dt>
+<dd><p>Схема данных для обновления любимого места.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="schemas.places.PlacesListResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">schemas.places.</span></span><span class="sig-name descname"><span class="pre">PlacesListResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#models.places.Place" title="models.places.Place"><span class="pre">models.places.Place</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schemas.places.PlacesListResponse" title="Ссылка на это определение"></a></dt>
+<dd><p>Схема для представления данных о списке любимых мест.</p>
+</dd></dl>
+
+<span class="target" id="module-schemas.routes"></span><dl class="py class">
+<dt class="sig sig-object py" id="schemas.routes.MetadataTag">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">schemas.routes.</span></span><span class="sig-name descname"><span class="pre">MetadataTag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schemas.routes.MetadataTag" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель для описания метаданных для методов API.</p>
+</dd></dl>
+
+</section>
+<section id="id15">
+<h1>Сервисы<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h1>
+</section>
+<section id="id16">
+<h1>Транспорт<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h1>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Michael.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
