@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Справочник по странам и городам &mdash; документация Countries Informer Service </title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Countries Informer Service
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Справочник по странам и городам</a><ul>
+<li><a class="reference internal" href="#id2">Установка</a></li>
+<li><a class="reference internal" href="#id3">Использование</a></li>
+<li><a class="reference internal" href="#id4">Автоматизация</a></li>
+<li><a class="reference internal" href="#id5">Тестирование</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">Документация к исходному коду</a><ul>
+<li><a class="reference internal" href="#index-0">Сервис по сбору географических данных</a><ul>
+<li><a class="reference internal" href="#id8">Клиенты</a><ul>
+<li><a class="reference internal" href="#module-geo.clients.geo">Страны и города</a></li>
+<li><a class="reference internal" href="#id10">Валюты и их курсы</a></li>
+<li><a class="reference internal" href="#module-geo.clients.weather">Погода</a></li>
+<li><a class="reference internal" href="#module-geo.clients.shemas">Схемы</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">Сервисы</a><ul>
+<li><a class="reference internal" href="#module-geo.services.country">Страна</a></li>
+<li><a class="reference internal" href="#module-geo.services.city">Город</a></li>
+<li><a class="reference internal" href="#module-geo.services.currency">Валюта</a></li>
+<li><a class="reference internal" href="#id17">Погода</a></li>
+<li><a class="reference internal" href="#id18">Схемы</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id19">Отображения</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#index-1">Сервис сбора новостей</a><ul>
+<li><a class="reference internal" href="#id21">Клиенты</a></li>
+<li><a class="reference internal" href="#id22">Сервисы</a></li>
+<li><a class="reference internal" href="#module-news.views">Views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Countries Informer Service</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Справочник по странам и городам</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Справочник по странам и городам<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p>Веб-сервис для получения актуальной информации о странах и городах.
+Приложение позволяет получать из открытых источников информацию о странах и городах (географические данные, валюты, погода)
+и предоставлять её пользователю.</p>
+<section id="id2">
+<h2>Установка<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p>Установите требуемое ПО:</p>
+<ol class="arabic simple">
+<li><p>Docker для контейнеризации – <a href="https://www.docker.com" target="_blank">Docker Desktop</a></p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Для работы с системой контроля версий – <a href="https://github.com/git-guides/install-git" target="_blank">Git</a></p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>IDE для работы с исходным кодом – <a href="https://www.jetbrains.com/ru-ru/pycharm/download" target="_blank">PyCharm</a></p></li>
+</ol>
+<p>Клонируйте репозиторий проекта в свою рабочую директорию:</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/MNV/python-course-countries-informer.git</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id3">
+<h2>Использование<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<p>Перед началом использования приложения необходимо его сконфигурировать.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Для конфигурации выполните команды, описанные ниже, находясь в корневой директории проекта.</p>
+</div>
+<ol class="arabic">
+<li><dl>
+<dt>Скопируйте файл настроек <cite>.env.sample</cite>, создав файл <cite>.env</cite>:</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cp .env.sample .env</span>
+</pre></div>
+</div>
+<p>Этот файл содержит преднастроенные переменные окружения, значения которых будут общими для всего приложения.
+Файл примера (<cite>.env.sample</cite>) содержит набор переменных со значениями по умолчанию.
+Созданный файл <cite>.env</cite> можно настроить в зависимости от окружения.</p>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Никогда не добавляйте в систему контроля версий заполненный файл <cite>.env</cite> для предотвращения компрометации информации о конфигурации приложения.</p>
+</div>
+<p>Чтобы получить доступ к API внешних систем, посетите соответствующие сервисы и получите токены доступа:</p>
+<ul class="simple">
+<li><p>APILayer — Geography API (<a class="reference external" href="https://apilayer.com/marketplace/geo-api">https://apilayer.com/marketplace/geo-api</a>)</p></li>
+<li><p>OpenWeather – Weather Free Plan (<a class="reference external" href="https://openweathermap.org/price#weather">https://openweathermap.org/price#weather</a>)</p></li>
+<li><p>NewsAPI — News API (<a class="reference external" href="https://newsapi.org/register">https://newsapi.org/register</a>)</p></li>
+</ul>
+<p>Задайте полученные токены доступа в качестве значений переменных окружения (в файле <cite>.env</cite>):</p>
+<ul class="simple">
+<li><p><cite>API_KEY_APILAYER</cite> – для токена доступа к APILayer</p></li>
+<li><p><cite>API_KEY_OPENWEATHER</cite> – для токена доступа к OpenWeather</p></li>
+<li><p><cite>API_KEY_NEWSAPI</cite> - для токена доступа к NewsAPI</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Соберите Docker-контейнер с помощью Docker Compose:</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker compose build</span>
+</pre></div>
+</div>
+<p>Данную команду необходимо выполнять повторно в случае обновления зависимостей в файле <cite>requirements.txt</cite>.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Чтобы просмотреть документацию по использованию консольного приложения, выполните:</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker compose run app python main.py --help</span>
+</pre></div>
+</div>
+<p>Данная команда выведет на экран список доступных аргументов и их значения по умолчанию.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Для запуска приложения выполните:</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker compose up</span>
+</pre></div>
+</div>
+<p>Когда контейнеры запустятся, приложение можно будет открыть по адресу: <a class="reference external" href="http://0.0.0.0:8020">http://0.0.0.0:8020</a> в браузере.</p>
+</dd>
+</dl>
+</li>
+<li><p>Собираемые в приложении данные кэшируются для оптимизации частоты запросов.
+Частота обновления данных зависит от настроек в переменных:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>CACHE_TTL_CURRENCY_RATES</cite> (время актуальности данных о курсах валют)</p></li>
+<li><p><cite>CACHE_TTL_WEATHER</cite> (время актуальности данных о погоде)</p></li>
+</ul>
+<p>Значение для этих переменных указывается в секундах (они определяются в файле <cite>.env</cite>).</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="id4">
+<h2>Автоматизация<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<p>Проект содержит специальный файл (<cite>Makefile</cite>) для автоматизации выполнения команд:</p>
+<ol class="arabic simple">
+<li><p>Сборка Docker-контейнера.</p></li>
+<li><p>Генерация документации.</p></li>
+<li><p>Запуск форматирования кода.</p></li>
+<li><p>Запуск статического анализа кода (выявление ошибок типов и форматирования кода).</p></li>
+<li><p>Запуск автоматических тестов.</p></li>
+<li><p>Запуск всех функций поддержки качества кода (форматирование, линтеры, автотесты).</p></li>
+</ol>
+<p>Инструкция по запуску этих команд находится в файле <cite>README.md</cite>.</p>
+</section>
+<section id="id5">
+<h2>Тестирование<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<p>Для запуска автоматических тестов выполните команду:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker compose run app pytest --cov=/src --cov-report html:htmlcov --cov-report term --cov-config=/src/tests/.coveragerc -vv</span>
+</pre></div>
+</div>
+<p>Также существует аналогичная <cite>make</cite>-команда:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make test</span>
+</pre></div>
+</div>
+<p>Отчет о тестировании находится в файле <cite>src/htmlcov/index.html</cite>.</p>
+</section>
+</section>
+<section id="id6">
+<h1>Документация к исходному коду<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="index-0">
+<span id="id7"></span><h2>Сервис по сбору географических данных<a class="headerlink" href="#index-0" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<section id="id8">
+<h3>Клиенты<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<section id="module-geo.clients.geo">
+<span id="id9"></span><h4>Страны и города<a class="headerlink" href="#module-geo.clients.geo" title="Permalink to this heading"></a></h4>
+<p>Функции для взаимодействия с внешним сервисом-провайдером данных о странах.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.geo.GeoClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.geo.</span></span><span class="sig-name descname"><span class="pre">GeoClient</span></span><a class="headerlink" href="#geo.clients.geo.GeoClient" title="Ссылка на это определение"></a></dt>
+<dd><p>Реализация функций для взаимодействия с внешним сервисом-провайдером данных о странах и городах.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.clients.geo.GeoClient.get_base_url">
+<span class="sig-name descname"><span class="pre">get_base_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#geo.clients.geo.GeoClient.get_base_url" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение базового URL для запросов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.clients.geo.GeoClient.get_cities">
+<span class="sig-name descname"><span class="pre">get_cities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#geo.clients.shemas.CityDTO" title="geo.clients.shemas.CityDTO"><span class="pre">geo.clients.shemas.CityDTO</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#geo.clients.geo.GeoClient.get_cities" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение данных о городах по названию.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – Название города</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.clients.geo.GeoClient.get_countries">
+<span class="sig-name descname"><span class="pre">get_countries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#geo.clients.shemas.CountryDTO" title="geo.clients.shemas.CountryDTO"><span class="pre">geo.clients.shemas.CountryDTO</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#geo.clients.geo.GeoClient.get_countries" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение данных о странах по названию.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – Название страны</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.clients.geo.GeoClient.get_country_by_code">
+<span class="sig-name descname"><span class="pre">get_country_by_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#geo.clients.shemas.CountryDTO" title="geo.clients.shemas.CountryDTO"><span class="pre">CountryDTO</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#geo.clients.geo.GeoClient.get_country_by_code" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение данных о странах по коду (ISO Alpha3).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – ISO Alpha3 код</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="id10">
+<h4>Валюты и их курсы<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+<span class="target" id="module-geo.clients.currency"></span><p>Функции для взаимодействия с внешним сервисом-провайдером данных о валюте.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.currency.CurrencyClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.currency.</span></span><span class="sig-name descname"><span class="pre">CurrencyClient</span></span><a class="headerlink" href="#geo.clients.currency.CurrencyClient" title="Ссылка на это определение"></a></dt>
+<dd><p>Реализация функций для взаимодействия с внешним сервисом-провайдером данных о валюте.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.clients.currency.CurrencyClient.get_base_url">
+<span class="sig-name descname"><span class="pre">get_base_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#geo.clients.currency.CurrencyClient.get_base_url" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение базового URL для запросов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.clients.currency.CurrencyClient.get_currency">
+<span class="sig-name descname"><span class="pre">get_currency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'rub'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#geo.clients.shemas.CurrencyRatesDTO" title="geo.clients.shemas.CurrencyRatesDTO"><span class="pre">CurrencyRatesDTO</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#geo.clients.currency.CurrencyClient.get_currency" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение данных о валюте.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base</strong> – Валюта, к которой нужно получить курс</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geo.clients.weather">
+<span id="id11"></span><h4>Погода<a class="headerlink" href="#module-geo.clients.weather" title="Permalink to this heading"></a></h4>
+<p>Функции для взаимодействия с внешним сервисом-провайдером данных о погоде.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.weather.WeatherClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.weather.</span></span><span class="sig-name descname"><span class="pre">WeatherClient</span></span><a class="headerlink" href="#geo.clients.weather.WeatherClient" title="Ссылка на это определение"></a></dt>
+<dd><p>Реализация функций для взаимодействия с внешним сервисом-провайдером данных о погоде.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.clients.weather.WeatherClient.get_base_url">
+<span class="sig-name descname"><span class="pre">get_base_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#geo.clients.weather.WeatherClient.get_base_url" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение базового URL для запросов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.clients.weather.WeatherClient.get_weather">
+<span class="sig-name descname"><span class="pre">get_weather</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#geo.clients.shemas.WeatherInfoDTO" title="geo.clients.shemas.WeatherInfoDTO"><span class="pre">WeatherInfoDTO</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#geo.clients.weather.WeatherClient.get_weather" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение данных о погоде.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>location</strong> – Город и страна</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geo.clients.shemas">
+<span id="id12"></span><h4>Схемы<a class="headerlink" href="#module-geo.clients.shemas" title="Permalink to this heading"></a></h4>
+<p>Описание моделей данных (DTO).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.shemas.CityDTO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.shemas.</span></span><span class="sig-name descname"><span class="pre">CityDTO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_or_region</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#geo.clients.shemas.CountryShortDTO" title="geo.clients.shemas.CountryShortDTO"><span class="pre">CountryShortDTO</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.clients.shemas.CityDTO" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель данных о городе.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CityDTO</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Tallinn&quot;</span><span class="p">,</span>
+    <span class="n">state_or_region</span><span class="o">=</span><span class="s2">&quot;Harjumaa&quot;</span><span class="p">,</span>
+    <span class="n">country</span><span class="o">=</span><span class="n">CountryShortDTO</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Estonia&quot;</span><span class="p">,</span>
+        <span class="n">alpha2code</span><span class="o">=</span><span class="s2">&quot;EE&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">latitude</span><span class="o">=</span><span class="mf">59.436958</span><span class="p">,</span>
+    <span class="n">longitude</span><span class="o">=</span><span class="mf">24.753531</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.shemas.CountryDTO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.shemas.</span></span><span class="sig-name descname"><span class="pre">CountryDTO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha2code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha3code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capital</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subregion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">demonym</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currencies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#geo.clients.shemas.CurrencyInfoDTO" title="geo.clients.shemas.CurrencyInfoDTO"><span class="pre">geo.clients.shemas.CurrencyInfoDTO</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">languages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#geo.clients.shemas.LanguagesInfoDTO" title="geo.clients.shemas.LanguagesInfoDTO"><span class="pre">geo.clients.shemas.LanguagesInfoDTO</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.clients.shemas.CountryDTO" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель данных о стране.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CountryDTO</span><span class="p">(</span>
+    <span class="n">capital</span><span class="o">=</span><span class="s2">&quot;Mariehamn&quot;</span><span class="p">,</span>
+    <span class="n">alpha2code</span><span class="o">=</span><span class="s2">&quot;AX&quot;</span><span class="p">,</span>
+    <span class="n">alt_spellings</span><span class="o">=</span><span class="p">[</span>
+      <span class="s2">&quot;AX&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Aaland&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Aland&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Ahvenanmaa&quot;</span>
+    <span class="p">],</span>
+    <span class="n">currencies</span><span class="o">=</span><span class="p">{</span>
+        <span class="n">CurrencyInfoDTO</span><span class="p">(</span>
+            <span class="n">code</span><span class="o">=</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">},</span>
+    <span class="n">flag</span><span class="o">=</span><span class="s2">&quot;http://assets.promptapi.com/flags/AX.svg&quot;</span><span class="p">,</span>
+    <span class="n">languages</span><span class="o">=</span><span class="p">{</span>
+        <span class="n">LanguagesInfoDTO</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Swedish&quot;</span><span class="p">,</span>
+            <span class="n">native_name</span><span class="o">=</span><span class="s2">&quot;svenska&quot;</span>
+        <span class="p">)</span>
+    <span class="p">},</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Åland Islands&quot;</span><span class="p">,</span>
+    <span class="n">population</span><span class="o">=</span><span class="mi">28875</span><span class="p">,</span>
+    <span class="n">subregion</span><span class="o">=</span><span class="s2">&quot;Northern Europe&quot;</span><span class="p">,</span>
+    <span class="n">timezones</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;UTC+02:00&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.shemas.CountryShortDTO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.shemas.</span></span><span class="sig-name descname"><span class="pre">CountryShortDTO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha2code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.clients.shemas.CountryShortDTO" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель базовых данных о стране.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CountryShortDTO</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="n">Åland</span> <span class="n">Islands</span><span class="s2">&quot;,</span>
+    <span class="n">alpha2code</span><span class="o">=</span><span class="s2">&quot;AX&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.shemas.CurrencyInfoDTO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.shemas.</span></span><span class="sig-name descname"><span class="pre">CurrencyInfoDTO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.clients.shemas.CurrencyInfoDTO" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель данных о валюте.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CurrencyInfoDTO</span><span class="p">(</span>
+    <span class="n">code</span><span class="o">=</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.shemas.CurrencyRatesDTO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.shemas.</span></span><span class="sig-name descname"><span class="pre">CurrencyRatesDTO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.clients.shemas.CurrencyRatesDTO" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель данных о курсах валют.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CurrencyRatesDTO</span><span class="p">(</span>
+    <span class="n">base</span><span class="o">=</span><span class="s2">&quot;RUB&quot;</span><span class="p">,</span>
+    <span class="n">date</span><span class="o">=</span><span class="s2">&quot;2022-09-14&quot;</span><span class="p">,</span>
+    <span class="n">rates</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;EUR&quot;</span><span class="p">:</span> <span class="mf">0.016503</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.shemas.LanguagesInfoDTO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.shemas.</span></span><span class="sig-name descname"><span class="pre">LanguagesInfoDTO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.clients.shemas.LanguagesInfoDTO" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель данных о языке.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LanguagesInfoDTO</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Swedish&quot;</span><span class="p">,</span>
+    <span class="n">native_name</span><span class="o">=</span><span class="s2">&quot;svenska&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.shemas.LocationDTO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.shemas.</span></span><span class="sig-name descname"><span class="pre">LocationDTO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha2code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConstrainedStrValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.clients.shemas.LocationDTO" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель локации для получения сведений о погоде.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LocationDTO</span><span class="p">(</span>
+    <span class="n">city</span><span class="o">=</span><span class="s2">&quot;Mariehamn&quot;</span><span class="p">,</span>
+    <span class="n">alpha2code</span><span class="o">=</span><span class="s2">&quot;AX&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.shemas.LocationInfoDTO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.shemas.</span></span><span class="sig-name descname"><span class="pre">LocationInfoDTO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#geo.clients.shemas.CountryDTO" title="geo.clients.shemas.CountryDTO"><span class="pre">CountryDTO</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weather</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#geo.clients.shemas.WeatherInfoDTO" title="geo.clients.shemas.WeatherInfoDTO"><span class="pre">WeatherInfoDTO</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency_rates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.clients.shemas.LocationInfoDTO" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель данных для представления общей информации о месте.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LocationInfoDTO</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="n">CountryDTO</span><span class="p">(</span>
+        <span class="n">capital</span><span class="o">=</span><span class="s2">&quot;Mariehamn&quot;</span><span class="p">,</span>
+        <span class="n">alpha2code</span><span class="o">=</span><span class="s2">&quot;AX&quot;</span><span class="p">,</span>
+        <span class="n">alt_spellings</span><span class="o">=</span><span class="p">[</span>
+          <span class="s2">&quot;AX&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Aaland&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Aland&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Ahvenanmaa&quot;</span>
+        <span class="p">],</span>
+        <span class="n">currencies</span><span class="o">=</span><span class="p">{</span>
+            <span class="n">CurrencyInfoDTO</span><span class="p">(</span>
+                <span class="n">code</span><span class="o">=</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">},</span>
+        <span class="n">flag</span><span class="o">=</span><span class="s2">&quot;http://assets.promptapi.com/flags/AX.svg&quot;</span><span class="p">,</span>
+        <span class="n">languages</span><span class="o">=</span><span class="p">{</span>
+            <span class="n">LanguagesInfoDTO</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Swedish&quot;</span><span class="p">,</span>
+                <span class="n">native_name</span><span class="o">=</span><span class="s2">&quot;svenska&quot;</span>
+            <span class="p">)</span>
+        <span class="p">},</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Åland Islands&quot;</span><span class="p">,</span>
+        <span class="n">population</span><span class="o">=</span><span class="mi">28875</span><span class="p">,</span>
+        <span class="n">subregion</span><span class="o">=</span><span class="s2">&quot;Northern Europe&quot;</span><span class="p">,</span>
+        <span class="n">timezones</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">&quot;UTC+02:00&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">),</span>
+    <span class="n">weather</span><span class="o">=</span><span class="n">WeatherInfoDTO</span><span class="p">(</span>
+        <span class="n">temp</span><span class="o">=</span><span class="mf">13.92</span><span class="p">,</span>
+        <span class="n">pressure</span><span class="o">=</span><span class="mi">1023</span><span class="p">,</span>
+        <span class="n">humidity</span><span class="o">=</span><span class="mi">54</span><span class="p">,</span>
+        <span class="n">wind_speed</span><span class="o">=</span><span class="mf">4.63</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;scattered clouds&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">currency_rates</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;EUR&quot;</span><span class="p">:</span> <span class="mf">0.016503</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.clients.shemas.WeatherInfoDTO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.clients.shemas.</span></span><span class="sig-name descname"><span class="pre">WeatherInfoDTO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">humidity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wind_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visibility</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.clients.shemas.WeatherInfoDTO" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель данных о погоде.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WeatherInfoDTO</span><span class="p">(</span>
+    <span class="n">temp</span><span class="o">=</span><span class="mf">13.92</span><span class="p">,</span>
+    <span class="n">pressure</span><span class="o">=</span><span class="mi">1023</span><span class="p">,</span>
+    <span class="n">humidity</span><span class="o">=</span><span class="mi">54</span><span class="p">,</span>
+    <span class="n">wind_speed</span><span class="o">=</span><span class="mf">4.63</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;scattered clouds&quot;</span><span class="p">,</span>
+    <span class="n">visibility</span><span class="o">=</span><span class="mi">6000</span><span class="p">,</span>
+    <span class="n">dt</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">55</span><span class="p">),</span>
+    <span class="n">timezone</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+<section id="id13">
+<h3>Сервисы<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<section id="module-geo.services.country">
+<span id="id14"></span><h4>Страна<a class="headerlink" href="#module-geo.services.country" title="Permalink to this heading"></a></h4>
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.services.country.CountryService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.services.country.</span></span><span class="sig-name descname"><span class="pre">CountryService</span></span><a class="headerlink" href="#geo.services.country.CountryService" title="Ссылка на это определение"></a></dt>
+<dd><p>Сервис для работы с данными о странах.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.country.CountryService.build_model">
+<span class="sig-name descname"><span class="pre">build_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#geo.clients.shemas.CountryDTO" title="geo.clients.shemas.CountryDTO"><span class="pre">CountryDTO</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Country</span></span></span><a class="headerlink" href="#geo.services.country.CountryService.build_model" title="Ссылка на это определение"></a></dt>
+<dd><p>Формирование объекта модели страны.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>country</strong> (<a class="reference internal" href="#geo.clients.shemas.CountryDTO" title="geo.clients.shemas.CountryDTO"><em>CountryDTO</em></a>) – Данные о стране.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.country.CountryService.get_countries">
+<span class="sig-name descname"><span class="pre">get_countries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QuerySet</span></span></span><a class="headerlink" href="#geo.services.country.CountryService.get_countries" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение списка стран по названию.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – Название страны</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.country.CountryService.get_countries_by_codes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_countries_by_codes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QuerySet</span></span></span><a class="headerlink" href="#geo.services.country.CountryService.get_countries_by_codes" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение списка стран по их ISO Alpha2 кодам.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>codes</strong> – Множество ISO Alpha2 кодов стран.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.country.CountryService.get_countries_codes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_countries_codes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#geo.services.country.CountryService.get_countries_codes" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение списка ISO Alpha2 кодов стран.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – Название страны</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geo.services.city">
+<span id="id15"></span><h4>Город<a class="headerlink" href="#module-geo.services.city" title="Permalink to this heading"></a></h4>
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.services.city.CityService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.services.city.</span></span><span class="sig-name descname"><span class="pre">CityService</span></span><a class="headerlink" href="#geo.services.city.CityService" title="Ссылка на это определение"></a></dt>
+<dd><p>Сервис для работы с данными о городах.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.city.CityService.build_model">
+<span class="sig-name descname"><span class="pre">build_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">city</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#geo.clients.shemas.CityDTO" title="geo.clients.shemas.CityDTO"><span class="pre">CityDTO</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">country_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">City</span></span></span><a class="headerlink" href="#geo.services.city.CityService.build_model" title="Ссылка на это определение"></a></dt>
+<dd><p>Формирование объекта модели города.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>city</strong> (<a class="reference internal" href="#geo.clients.shemas.CityDTO" title="geo.clients.shemas.CityDTO"><em>CityDTO</em></a>) – Данные о городе.</p></li>
+<li><p><strong>country_id</strong> (<em>int</em>) – Идентификатор страны в БД.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.city.CityService.get_cities">
+<span class="sig-name descname"><span class="pre">get_cities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QuerySet</span></span></span><a class="headerlink" href="#geo.services.city.CityService.get_cities" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение списка городов по названию.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – Название города</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.city.CityService.get_cities_by_codes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_cities_by_codes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#geo.services.shemas.CountryCityDTO" title="geo.services.shemas.CountryCityDTO"><span class="pre">geo.services.shemas.CountryCityDTO</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QuerySet</span></span></span><a class="headerlink" href="#geo.services.city.CityService.get_cities_by_codes" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение списка городов по ISO Alpha2 кодам стран и названиям городов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>codes</strong> – Множество ISO Alpha2 кодов стран и названий городов.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geo.services.currency">
+<span id="id16"></span><h4>Валюта<a class="headerlink" href="#module-geo.services.currency" title="Permalink to this heading"></a></h4>
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.services.currency.CurrencyService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.services.currency.</span></span><span class="sig-name descname"><span class="pre">CurrencyService</span></span><a class="headerlink" href="#geo.services.currency.CurrencyService" title="Ссылка на это определение"></a></dt>
+<dd><p>Сервис для работы с данными о валюте.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.currency.CurrencyService.build_model">
+<span class="sig-name descname"><span class="pre">build_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Currency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">CurrencyRates</span></span></span><a class="headerlink" href="#geo.services.currency.CurrencyService.build_model" title="Ссылка на это определение"></a></dt>
+<dd><p>Формирование объекта модели валюты.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>currency</strong> (<a class="reference internal" href="#geo.clients.shemas.CurrencyRatesDTO" title="geo.clients.shemas.CurrencyRatesDTO"><em>CurrencyRatesDTO</em></a>) – Данные о валюте.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.currency.CurrencyService.get_currency">
+<span class="sig-name descname"><span class="pre">get_currency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'rub'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QuerySet</span></span></span><a class="headerlink" href="#geo.services.currency.CurrencyService.get_currency" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение курса валют по базовой валюте.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base</strong> – Название базовой валюты</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="id17">
+<h4>Погода<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h4>
+<span class="target" id="module-geo.services.weather"></span><dl class="py class">
+<dt class="sig sig-object py" id="geo.services.weather.WeatherService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.services.weather.</span></span><span class="sig-name descname"><span class="pre">WeatherService</span></span><a class="headerlink" href="#geo.services.weather.WeatherService" title="Ссылка на это определение"></a></dt>
+<dd><p>Сервис для работы с данными о погоде.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.weather.WeatherService.get_weather">
+<span class="sig-name descname"><span class="pre">get_weather</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha2code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Weather</span></span></span><a class="headerlink" href="#geo.services.weather.WeatherService.get_weather" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение погоды по локации.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha2code</strong> – ISO Alpha2 код страны</p></li>
+<li><p><strong>city</strong> – Город</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geo.services.weather.WeatherService.save_weather">
+<span class="sig-name descname"><span class="pre">save_weather</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weather</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#geo.clients.shemas.WeatherInfoDTO" title="geo.clients.shemas.WeatherInfoDTO"><span class="pre">WeatherInfoDTO</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Weather</span></span></span><a class="headerlink" href="#geo.services.weather.WeatherService.save_weather" title="Ссылка на это определение"></a></dt>
+<dd><p>Формирование объекта модели погоды.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weather</strong> (<a class="reference internal" href="#geo.clients.shemas.CountryDTO" title="geo.clients.shemas.CountryDTO"><em>CountryDTO</em></a>) – Данные о погоде</p></li>
+<li><p><strong>city</strong> (<em>str</em>) – Город</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="id18">
+<h4>Схемы<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h4>
+<span class="target" id="module-geo.services.shemas"></span><p>Описание моделей данных (DTO).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geo.services.shemas.CountryCityDTO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geo.services.shemas.</span></span><span class="sig-name descname"><span class="pre">CountryCityDTO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha2code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConstrainedStrValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.services.shemas.CountryCityDTO" title="Ссылка на это определение"></a></dt>
+<dd><p>Модель данных для идентификации города.
+Содержит ISO Alpha2-код страны и название города.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CountryCityDTO</span><span class="p">(</span>
+    <span class="n">city</span><span class="o">=</span><span class="s2">&quot;Mariehamn&quot;</span><span class="p">,</span>
+    <span class="n">alpha2code</span><span class="o">=</span><span class="s2">&quot;AX&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+<section id="id19">
+<h3>Отображения<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
+<span class="target" id="module-geo.views"></span><p>Представления Django</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="geo.views.get_cities">
+<span class="sig-prename descclassname"><span class="pre">geo.views.</span></span><span class="sig-name descname"><span class="pre">get_cities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.views.get_cities" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение информации о городах с фильтрацией по ISO Alpha2 коду страны и названию города.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>Request</em>) – Объект запроса</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geo.views.get_city">
+<span class="sig-prename descclassname"><span class="pre">geo.views.</span></span><span class="sig-name descname"><span class="pre">get_city</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.views.get_city" title="Ссылка на это определение"></a></dt>
+<dd><p>Получить информацию о городах по названию.</p>
+<p>Сначала метод ищет данные в БД. Если данные не найдены, то делается запрос к API.
+После получения данных от API они сохраняются в БД.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>Request</em>) – Объект запроса</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Название города</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geo.views.get_countries">
+<span class="sig-prename descclassname"><span class="pre">geo.views.</span></span><span class="sig-name descname"><span class="pre">get_countries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.views.get_countries" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение информации о странах с фильтрацией по их ISO Alpha2 коду страны.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>Request</em>) – Объект запроса</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geo.views.get_country">
+<span class="sig-prename descclassname"><span class="pre">geo.views.</span></span><span class="sig-name descname"><span class="pre">get_country</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.views.get_country" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение информации о странах по названию.</p>
+<p>Сначала метод ищет данные в БД. Если данные не найдены, то делается запрос к API.
+После получения данных от API они сохраняются в БД.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>Request</em>) – Объект запроса</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Название страны</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geo.views.get_currency">
+<span class="sig-prename descclassname"><span class="pre">geo.views.</span></span><span class="sig-name descname"><span class="pre">get_currency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.views.get_currency" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение информации о курсе валют по названию базовой валюты.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>Request</em>) – Объект запроса</p></li>
+<li><p><strong>base</strong> (<em>str</em>) – Название базовой валюты</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geo.views.get_weather">
+<span class="sig-prename descclassname"><span class="pre">geo.views.</span></span><span class="sig-name descname"><span class="pre">get_weather</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geo.views.get_weather" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение информации о погоде в указанном городе.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>Request</em>) – Объект запроса</p></li>
+<li><p><strong>alpha2code</strong> (<em>str</em>) – ISO Alpha2 код страны</p></li>
+<li><p><strong>city</strong> (<em>str</em>) – Город</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="index-1">
+<span id="id20"></span><h2>Сервис сбора новостей<a class="headerlink" href="#index-1" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<section id="id21">
+<h3>Клиенты<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
+<span class="target" id="module-news.clients.news"></span><p>Функции для взаимодействия с внешним сервисом-провайдером новостной ленты.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="news.clients.news.NewsClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">news.clients.news.</span></span><span class="sig-name descname"><span class="pre">NewsClient</span></span><a class="headerlink" href="#news.clients.news.NewsClient" title="Ссылка на это определение"></a></dt>
+<dd><p>Реализация функций для взаимодействия с внешним сервисом-провайдером новостной ленты.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="news.clients.news.NewsClient.get_base_url">
+<span class="sig-name descname"><span class="pre">get_base_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#news.clients.news.NewsClient.get_base_url" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение базового URL для запросов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="news.clients.news.NewsClient.get_news">
+<span class="sig-name descname"><span class="pre">get_news</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha2code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">news.clients.shemas.NewsItemDTO</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#news.clients.news.NewsClient.get_news" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение новостной ленты для указанной страны.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>alpha2code</strong> – ISO Alpha2 код страны</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="id22">
+<h3>Сервисы<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
+<span class="target" id="module-news.services.news"></span><dl class="py class">
+<dt class="sig sig-object py" id="news.services.news.NewsService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">news.services.news.</span></span><span class="sig-name descname"><span class="pre">NewsService</span></span><a class="headerlink" href="#news.services.news.NewsService" title="Ссылка на это определение"></a></dt>
+<dd><p>Сервис для работы с данными о новостях.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="news.services.news.NewsService.build_model">
+<span class="sig-name descname"><span class="pre">build_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">news_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NewsItemDTO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">News</span></span></span><a class="headerlink" href="#news.services.news.NewsService.build_model" title="Ссылка на это определение"></a></dt>
+<dd><p>Формирование объекта модели новости.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>news_item</strong> (<em>NewsItemDTO</em>) – Данные о новости</p></li>
+<li><p><strong>country_id</strong> (<em>int</em>) – Идентификатор страны в БД</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="news.services.news.NewsService.get_news">
+<span class="sig-name descname"><span class="pre">get_news</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">news.clients.shemas.NewsItemDTO</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#news.services.news.NewsService.get_news" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение актуальных новостей по коду страны.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>country_code</strong> (<em>str</em>) – ISO Alpha2 код страны</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="news.services.news.NewsService.save_news">
+<span class="sig-name descname"><span class="pre">save_news</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country_pk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">news</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">news.clients.shemas.NewsItemDTO</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#news.services.news.NewsService.save_news" title="Ссылка на это определение"></a></dt>
+<dd><p>Сохранение новостей в базе данных.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country_pk</strong> – Первичный ключ страны в базе данных</p></li>
+<li><p><strong>news</strong> – Список объектов новостей</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-news.views">
+<span id="views"></span><h3>Views<a class="headerlink" href="#module-news.views" title="Permalink to this heading"></a></h3>
+<p>Представления Django</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="news.views.get_news">
+<span class="sig-prename descclassname"><span class="pre">news.views.</span></span><span class="sig-name descname"><span class="pre">get_news</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#news.views.get_news" title="Ссылка на это определение"></a></dt>
+<dd><p>Получение новостей для указанной страны.
+:param Request request: Объект запроса
+:param str alpha2code: ISO Alpha2 код страны
+:return:</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Michael.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
