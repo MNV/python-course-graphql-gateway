@@ -2,9 +2,9 @@ from http.client import HTTPException
 from typing import Optional
 from urllib.parse import urlencode, urljoin
 
-from src.clients.base.base import BaseClient
-from src.models.places import PlaceModel
-from src.settings import settings
+from clients.base.base import BaseClient
+from models.places import PlaceModel
+from settings import settings
 
 
 class PlacesClient(BaseClient):

@@ -2,7 +2,7 @@ from typing import Optional
 
 from pydantic import BaseModel, Field
 
-from src.models.mixins import TimeStampMixin
+from models.mixins import TimeStampMixin
 
 
 class PlaceModel(TimeStampMixin, BaseModel):

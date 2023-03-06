@@ -4,15 +4,15 @@ networks:
 services:
   # GraphQL API Gateway
   favorite-places-gateway:
-    build: .
+    build: ./graphql
     container_name: favorite-places-gateway
     command: flask --debug run --host=0.0.0.0 --port=8000
     ports:
       - "8000:8000"
     volumes:
-      - ./src:/src
-      - ./docs:/docs
+      - ./graphql/src:/src
+      - ./graphql/docs:/docs
     env_file:
-      - .env
+      - graphql/.env
     networks:
       - favorite-places

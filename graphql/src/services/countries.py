@@ -1,7 +1,7 @@
 from typing import Optional
 
-from src.clients.countries import CountriesClient
-from src.models.countries import CountryModel
+from clients.countries import CountriesClient
+from models.countries import CountryModel
 
 
 class CountriesService:

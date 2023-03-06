@@ -2,7 +2,7 @@ from flask import Flask
 from flask_graphql import GraphQLView
 
 from context import get_context
-from src.schema import schema
+from schema import schema
 
 app = Flask(__name__)
 

@@ -5,9 +5,9 @@ from graphene import ID, Field
 from graphql import ResolveInfo
 from promise import Promise
 
-from src.context import DATA_LOADER_COUNTRIES
-from src.models.places import PlaceModel
-from src.services.places import PlacesService
+from context import DATA_LOADER_COUNTRIES
+from models.places import PlaceModel
+from services.places import PlacesService
 
 
 class Country(graphene.ObjectType):

@@ -3,9 +3,9 @@ from typing import Any, Optional
 import graphene
 from graphql import ResolveInfo
 
-from src.models.places import PlaceModel
-from src.schema.query import Place
-from src.services.places import PlacesService
+from models.places import PlaceModel
+from schema.query import Place
+from services.places import PlacesService
 
 
 class CreatePlace(graphene.Mutation):
