@@ -1,4 +1,3 @@
-import logging.config
 from typing import Optional
 from urllib.parse import urljoin
 
@@ -6,8 +5,7 @@ from clients.base.base import BaseClient
 from models.countries import CountryModel
 from settings import settings
 
-logging.config.fileConfig("logging.conf")
-logger = logging.getLogger()
+
 class CountriesClient(BaseClient):
     """
     Реализация функций для получения информации о странах.
@@ -29,8 +27,6 @@ class CountriesClient(BaseClient):
         endpoint = "http://countries-informer-app:8000/api/v1/country"
 
         query_params = ""
-        logger.info("codes")
-        logger.info(alpha2codes)
         for code in alpha2codes:
             query_params += f"codes={code.lower()}&"
 

@@ -19,5 +19,4 @@ class CountriesService:
 
         codes = {code.lower() for code in alpha2codes if len(code) == 2}
 
-
         return CountriesClient().get_list_by_codes(codes)
