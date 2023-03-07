@@ -37,16 +37,30 @@ git clone https://github.com/mnv/python-course-graphql-gateway
     ```shell
     docker compose up
     ```
-   When containers are up server starts at [http://0.0.0.0:8000/graphql](http://0.0.0.0:8000/graphql). You can open it in your browser.
+
+4. Make migrations inside DBs:
+
+    ```shell
+    docker compose run favorite-places-app alembic upgrade head
+    ```
+
+    ```shell
+    docker compose run countries-informer-app bash
+    ```
+   Inside container run:
+    ```shell
+    ./manage.py migrate
+    ```
+When containers are up server starts at [http://0.0.0.0:8000/graphql](http://0.0.0.0:8000/graphql). You can open it in your browser.
 
 ## Usage
 
 ### Queries
 
-Query example to request a list of favorite places: 
+Query example to request a list of favorite places with pagination: 
 ```graphql
 query {
-  places {
+  places (page: 1, size: 2) {
     latitude
     longitude
     description
@@ -131,9 +145,26 @@ mutation {
 }
 ```
 
-Query example to create a favorite place: 
+Query example to update a favorite place: 
 ```graphql
-
+mutation {
+  updatePlace (
+  	placeId: 1
+    latitude: 25,
+    longitude: 55,
+    description: "Awesome!"
+  ) {
+    place {
+      id
+      latitude
+      longitude
+      description
+      city
+      locality
+    }
+    result
+  }
+}
 ```
 
 This query will request additional information about related countries in optimal way using data loaders to prevent N + 1 requests problem.

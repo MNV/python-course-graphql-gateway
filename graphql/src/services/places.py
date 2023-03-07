@@ -1,7 +1,7 @@
 from typing import Optional
 
 from clients.places import PlacesClient
-from models.places import PlaceModel
+from models.places import PlaceModel, PlaceSummary
 
 
 class PlacesService:
