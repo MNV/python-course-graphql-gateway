@@ -1,4 +1,4 @@
-from typing import Optional, Dict
+from typing import Dict, Optional
 
 from django.db.models import Q, QuerySet
 from django.db.models.functions import Lower

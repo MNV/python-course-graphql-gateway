@@ -5,7 +5,7 @@ from django.db.models.functions import Lower
 
 from geo.clients.geo import GeoClient
 from geo.clients.shemas import CityDTO
-from geo.models import Country, City
+from geo.models import City, Country
 from geo.services.country import CountryService
 from geo.services.shemas import CountryCityDTO
 

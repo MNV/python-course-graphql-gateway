@@ -1,13 +1,19 @@
 from typing import Any
 
 from fastapi import APIRouter, Depends, status
+from fastapi_pagination import Page, add_pagination, paginate
+from fastapi_pagination.bases import AbstractPage
 
 from exceptions import ApiHTTPException, ObjectNotFoundException
-from fastapi_pagination.bases import AbstractPage
-from schemas.places import PlaceResponse, PlacesListResponse, PlaceModel, PlaceSummary, PlaceAutoSummary
+from schemas.places import (
+    PlaceAutoSummary,
+    PlaceModel,
+    PlaceResponse,
+    PlacesListResponse,
+    PlaceSummary,
+)
 from schemas.routes import MetadataTag
 from services.places_service import PlacesService
-from fastapi_pagination import Page, add_pagination, paginate
 
 router = APIRouter()
 
@@ -22,8 +28,9 @@ tag_places = MetadataTag(
     summary="Получение списка объектов",
     response_model=Page[PlaceModel],
 )
-async def get_list(places_service: PlacesService = Depends(),
-                   ) -> AbstractPage[Any]:
+async def get_list(
+    places_service: PlacesService = Depends(),
+) -> AbstractPage[Any]:
     """
     Получение списка любимых мест.
 
@@ -40,7 +47,7 @@ async def get_list(places_service: PlacesService = Depends(),
     response_model=PlaceResponse,
 )
 async def get_one(
-        primary_key: int, places_service: PlacesService = Depends()
+    primary_key: int, places_service: PlacesService = Depends()
 ) -> PlaceResponse:
     """
     Получение объекта любимого места по его идентификатору.
@@ -63,7 +70,7 @@ async def get_one(
     status_code=status.HTTP_201_CREATED,
 )
 async def create(
-        place: PlaceSummary, places_service: PlacesService = Depends()
+    place: PlaceSummary, places_service: PlacesService = Depends()
 ) -> PlaceResponse:
     """
     Создание нового объекта любимого места по переданным данным.
@@ -88,7 +95,7 @@ async def create(
     response_model=PlaceResponse,
 )
 async def update(
-        primary_key: int, place: PlaceSummary, places_service: PlacesService = Depends()
+    primary_key: int, place: PlaceSummary, places_service: PlacesService = Depends()
 ) -> PlaceResponse:
     """
     Обновление объекта любимого места по переданным данным.
@@ -129,17 +136,18 @@ async def delete(primary_key: int, places_service: PlacesService = Depends()) ->
     response_model=PlaceResponse,
     status_code=status.HTTP_201_CREATED,
 )
-async def create_auto(place_auto: PlaceAutoSummary, places_service: PlacesService = Depends()
-                      ) -> PlaceResponse:
+async def create_auto(
+    place_auto: PlaceAutoSummary, places_service: PlacesService = Depends()
+) -> PlaceResponse:
     """
     Создание нового объекта любимого места с автоматическим определением координат.
 
     :return:
     """
 
-    place = PlaceSummary(latitude=None,
-                         longitude=None,
-                         description=place_auto.description)
+    place = PlaceSummary(
+        latitude=None, longitude=None, description=place_auto.description
+    )
     if primary_key := await places_service.create_place(place):
         return PlaceResponse(data=await places_service.get_place(primary_key))
 

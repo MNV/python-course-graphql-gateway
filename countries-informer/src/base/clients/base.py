@@ -3,10 +3,11 @@
 """
 
 from abc import ABC, abstractmethod
+from http import HTTPStatus
 from typing import Any, Optional
 
-from http import HTTPStatus
 import httpx
+
 from app.settings import REQUESTS_TIMEOUT
 
 

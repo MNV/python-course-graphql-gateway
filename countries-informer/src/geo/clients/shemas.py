@@ -1,10 +1,10 @@
 """
 Описание моделей данных (DTO).
 """
-from typing import Optional
 from datetime import datetime
+from typing import Optional
 
-from pydantic import Field, BaseModel
+from pydantic import BaseModel, Field
 
 from base.clients.shemas import HashableBaseModel
 

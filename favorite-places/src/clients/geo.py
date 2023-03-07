@@ -6,6 +6,7 @@ from typing import Optional
 from urllib.parse import urlencode, urljoin
 
 import httpx
+
 from clients.base.base import BaseClient
 from clients.shemas import LocalityDTO
 

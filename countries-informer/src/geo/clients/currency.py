@@ -6,7 +6,7 @@ from typing import Optional
 
 import httpx
 
-from app.settings import REQUESTS_TIMEOUT, API_KEY_APILAYER
+from app.settings import API_KEY_APILAYER, REQUESTS_TIMEOUT
 from base.clients.base import BaseClient
 from geo.clients.shemas import CurrencyRatesDTO
 

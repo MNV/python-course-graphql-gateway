@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from geo.models import Country, City, CurrencyRates, Weather, Currency
+from geo.models import City, Country, Currency, CurrencyRates, Weather
 
 
 class CountrySerializer(serializers.ModelSerializer):

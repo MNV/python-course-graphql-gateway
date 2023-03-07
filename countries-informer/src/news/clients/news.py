@@ -6,9 +6,8 @@ from typing import Optional
 
 import httpx
 
-from app.settings import REQUESTS_TIMEOUT, API_KEY_NEWSAPI
+from app.settings import API_KEY_NEWSAPI, REQUESTS_TIMEOUT
 from base.clients.base import BaseClient
-
 from news.clients.shemas import NewsItemDTO
 
 

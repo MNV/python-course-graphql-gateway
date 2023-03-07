@@ -7,18 +7,19 @@ from rest_framework.decorators import api_view
 from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.request import Request
 
-from app.settings import CACHE_WEATHER, CACHE_CURRENCY
+from app.settings import CACHE_CURRENCY, CACHE_WEATHER
 from geo.serializers import (
-    CountrySerializer,
     CitySerializer,
-    WeatherSerializer,
+    CountrySerializer,
     CurrencyRatesSerializer,
+    WeatherSerializer,
 )
 from geo.services.city import CityService
 from geo.services.country import CountryService
+from geo.services.currency import CurrencyService
 from geo.services.shemas import CountryCityDTO
 from geo.services.weather import WeatherService
-from geo.services.currency import CurrencyService
+
 
 @api_view(["GET"])
 def get_city(request: Request, name: str) -> JsonResponse:

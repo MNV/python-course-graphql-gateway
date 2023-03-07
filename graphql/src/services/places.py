@@ -19,7 +19,7 @@ class PlacesService:
         return PlacesClient().get_place(place_id)
 
     def get_places(
-            self, page: Optional[int], size: Optional[int]
+        self, page: Optional[int], size: Optional[int]
     ) -> Optional[list[PlaceModel]]:
         """
         Получение списка любимых мест.

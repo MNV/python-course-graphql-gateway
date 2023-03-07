@@ -10,6 +10,7 @@ class TestPlaces:
     """
     Тестирование метода создания любимого места.
     """
+
     mock_body = {
         "latitude": 12.3456,
         "longitude": 23.4567,

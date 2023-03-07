@@ -1,7 +1,7 @@
 from django.db.models import Q, QuerySet
+
 from geo.clients.currency import CurrencyClient
-from geo.models import CurrencyRates
-from geo.models import Currency
+from geo.models import Currency, CurrencyRates
 
 
 class CurrencyService:

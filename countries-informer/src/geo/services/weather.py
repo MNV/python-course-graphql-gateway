@@ -1,4 +1,5 @@
 from django.db.models import Q
+
 from geo.clients.shemas import WeatherInfoDTO
 from geo.clients.weather import WeatherClient
 from geo.models import Weather

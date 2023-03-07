@@ -11,7 +11,7 @@ from integrations.events.producer import EventProducer
 from integrations.events.schemas import CountryCityDTO
 from models import Place
 from repositories.places_repository import PlacesRepository
-from schemas.places import PlaceSummary, PlaceModel
+from schemas.places import PlaceModel, PlaceSummary
 from settings import settings
 
 logging.config.fileConfig("logging.conf")
@@ -55,7 +55,9 @@ class PlacesService:
 
         return await self.places_repository.find(primary_key)
 
-    async def update_place_location(self, place: PlaceModel, summary: PlaceSummary) -> PlaceModel:
+    async def update_place_location(
+        self, place: PlaceModel, summary: PlaceSummary
+    ) -> PlaceModel:
         """
         Обновление локации по переданным данным.
 
@@ -64,7 +66,7 @@ class PlacesService:
         :return:
         """
         if location := await LocationClient().get_location(
-                latitude=summary.latitude, longitude=summary.longitude
+            latitude=summary.latitude, longitude=summary.longitude
         ):
             place.country = location.alpha2code
             place.city = location.city
@@ -118,9 +120,11 @@ class PlacesService:
         :param summary: Данные создаваемого объекта.
         :return: Идентификатор созданного объекта.
         """
-        place = PlaceModel(latitude=summary.latitude,
-                           longitude=summary.longitude,
-                           description=summary.description)
+        place = PlaceModel(
+            latitude=summary.latitude,
+            longitude=summary.longitude,
+            description=summary.description,
+        )
         # Получение локации
         place = await self.update_place_location(place, summary)
 
@@ -133,7 +137,9 @@ class PlacesService:
 
         return primary_key
 
-    async def update_place(self, primary_key: int, summary: PlaceSummary) -> Optional[int]:
+    async def update_place(
+        self, primary_key: int, summary: PlaceSummary
+    ) -> Optional[int]:
         """
         Обновление объекта любимого места по переданным данным.
 

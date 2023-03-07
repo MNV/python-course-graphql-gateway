@@ -1,8 +1,10 @@
 from typing import Optional
+
 from django.db.models import Q
+
+from geo.services.country import CountryService
 from news.clients.news import NewsClient
 from news.clients.shemas import NewsItemDTO
-from geo.services.country import CountryService
 from news.models import News
 
 

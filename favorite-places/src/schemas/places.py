@@ -33,6 +33,7 @@ class PlaceAutoSummary(BaseModel):
     """
     Схема данных для обновления любимого места.
     """
+
     description: Optional[str] = Field(None, min_length=3, max_length=255)
 
 

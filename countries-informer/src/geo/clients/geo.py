@@ -8,7 +8,7 @@ import httpx
 
 from app.settings import API_KEY_APILAYER, REQUESTS_TIMEOUT
 from base.clients.base import BaseClient
-from geo.clients.shemas import CountryDTO, CurrencyInfoDTO, CityDTO, CountryShortDTO
+from geo.clients.shemas import CityDTO, CountryDTO, CountryShortDTO, CurrencyInfoDTO
 
 
 class GeoClient(BaseClient):
