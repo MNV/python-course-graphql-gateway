@@ -3,7 +3,7 @@ from typing import Any, Optional
 import graphene
 from graphql import ResolveInfo
 
-from models.places import PlaceModel
+from models.places import PlaceModel, PlaceSummary
 from schema.query import Place
 from services.places import PlacesService
 
@@ -48,6 +48,51 @@ class CreatePlace(graphene.Mutation):
         return CreatePlace(place=place, result=bool(place))
 
 
+class UpdatePlace(graphene.Mutation):
+    """
+    Функции для создания объекта любимого места.
+    """
+
+    class Arguments:
+        place_id = graphene.Int()
+        latitude = graphene.Float()
+        longitude = graphene.Float()
+        description = graphene.String()
+
+    result = graphene.Boolean()
+    place = graphene.Field(Place)
+
+    @staticmethod
+    def mutate(
+        parent: Optional[dict],
+        info: ResolveInfo,
+        place_id: int,
+        **kwargs: dict[str, Any]
+    ) -> "UpdatePlace":
+        """
+        Обработка запроса для создания нового объекта.
+
+        :param parent: Информация о родительском объекте (при наличии).
+        :param info: Объект с метаинформацией и данных о контексте запроса.
+        :param kwargs: Атрибуты со значениями для создания нового объекта.
+        :return:
+        """
+
+        # pylint: disable=unused-argument
+
+        # получение результата создания объекта
+        place = PlacesService().update_place(
+            place_id,
+            PlaceSummary(
+                latitude=kwargs.get("latitude"),
+                longitude=kwargs.get("longitude"),
+                description=kwargs.get("description"),
+            ),
+        )
+
+        return UpdatePlace(place=place, result=bool(place))
+
+
 class DeletePlace(graphene.Mutation):
     """
     Функции для удаления объекта любимого места.
@@ -89,3 +134,6 @@ class Mutation(graphene.ObjectType):
 
     #: метод удаления объекта любимого места
     delete_place = DeletePlace.Field()
+
+    #: метод обновления объекта любимого места
+    update_place = UpdatePlace.Field()

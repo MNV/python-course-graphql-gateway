@@ -18,14 +18,16 @@ class PlacesService:
 
         return PlacesClient().get_place(place_id)
 
-    def get_places(self) -> Optional[list[PlaceModel]]:
+    def get_places(
+            self, page: Optional[int], size: Optional[int]
+    ) -> Optional[list[PlaceModel]]:
         """
         Получение списка любимых мест.
 
         :return:
         """
 
-        return PlacesClient().get_list()
+        return PlacesClient().get_list(page=page, size=size)
 
     def create_place(self, place: PlaceModel) -> Optional[PlaceModel]:
         """
@@ -46,3 +48,14 @@ class PlacesService:
         """
 
         return PlacesClient().delete_place(place_id)
+
+    def update_place(self, place: PlaceSummary, place_id: int) -> Optional[PlaceModel]:
+        """
+        Обновление объекта любимого места по его идентификатору.
+
+        :param place_id: Идентификатор объекта.
+        :param place: Данные для обновления места.
+        :return:
+        """
+
+        return PlacesClient().update_place(place, place_id)
